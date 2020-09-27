@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Beiboot 2020 devPage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#764ABC"/>
+    <link rel="apple-touch-icon" href="/images/apple-touch.png">
+    <link rel="manifest" href="/js/pwa.webmanifest">
+    <link rel="stylesheet" href="css/styles.min.css">
+</head>
+<body>
+<span style="font-family: 'Barlow Light'" />
+<span style="font-family: 'Barlow Regular'" />
+<script src="js/main.min.js"></script>
+<div class="container">
+    <canvas id="canvas"></canvas>
+</div>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(swReg => {
+                    console.log('Service Worker is registered', swReg);
+                })
+                .catch(err => {
+                    console.error('Service Worker Error', err);
+                });
+        });
+    }
+</script>
+<noscript>
+    No JavaScript available.
+</noscript>
+</body>
+</html>
