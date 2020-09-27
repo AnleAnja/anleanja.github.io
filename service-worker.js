@@ -28,8 +28,8 @@ async function getImages(cache) {
     const landscape = await (await cache.match(landscapeReq)).json();
     const portrait = await (await cache.match(portraitReq)).json();
 
-    await cache.add(new Request(`http://192.168.2.106:3000${landscape.imagePath}`));
-    await cache.add(new Request(`http://192.168.2.106:3000${portrait.imagePath}`));
+    await cache.add(new Request(`https://beiboot.herokuapp.com${landscape.imagePath}`));
+    await cache.add(new Request(`https://beiboot.herokuapp.com${portrait.imagePath}`));
 }
 
 self.addEventListener('install', function (event) {
