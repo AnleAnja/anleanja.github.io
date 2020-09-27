@@ -32,8 +32,8 @@ async function getImages(cache) {
     const landscape = await (await cache.match(landscapeReq)).json();
     const portrait = await (await cache.match(portraitReq)).json();
 
-    await cache.add(new Request(`https://beiboot.herokuapp.com${landscape.imagePath}`));
-    await cache.add(new Request(`https://beiboot.herokuapp.com${portrait.imagePath}`));
+    await cache.add(new Request(landscape.imagePath));
+    await cache.add(new Request(portrait.imagePath));
 }
 
 self.addEventListener('install', function (event) {
